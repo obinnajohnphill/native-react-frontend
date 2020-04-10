@@ -1,0 +1,17 @@
+{
+  "name": "Touch2SuccessAPI",
+  "displayName": "Touch2SuccessAPI",
+  "expo": {
+    "name": "Touch2SuccessAPI",
+    "slug": "Touch2SuccessAPI",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
