@@ -7,7 +7,7 @@ class MenuComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            restaurants: [],
+            daily_menus: [],
             isLoading: true,
             errors: null
         };
@@ -22,9 +22,9 @@ class MenuComponent extends Component {
         };
         axios.get('https://developers.zomato.com/api/v2.1/restaurant?res_id=19333744', options)
             .then(response => {
-                const restaurants = response.data;
+                const daily_menus = response.data;
                 this.setState({
-                    restaurants: [this.state.restaurants, restaurants],
+                    daily_menus: [this.state.daily_menus, daily_menus],
                     isLoading: false
                 });
             })
@@ -39,17 +39,17 @@ class MenuComponent extends Component {
 
 
     render() {
-        const { isLoading, restaurants} = this.state;
+        const { isLoading, daily_menus} = this.state;
         return (
             <React.Fragment>
                 <h2>List of Menu</h2>
                 <div>
                     {!isLoading ? (
-                        restaurants.map(restaurant => {
+                        daily_menus.map(daily_menu => {
                             return (
-                                <div key={restaurant.id}>
-                                    <h2>{restaurant.name}</h2>
-                                    <p>{restaurant.cuisines}</p>
+                                <div key={daily_menu.id}>
+                                    <h2>{daily_menu.name}</h2>
+                                    <p>{daily_menu.cuisines}</p>
                                     <hr />
                                 </div>
                             );
