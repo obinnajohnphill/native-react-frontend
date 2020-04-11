@@ -47,6 +47,7 @@ class MenuComponent extends Component {
                         <h4>Dish Name: {item.daily_menu.name}</h4>
                         <h5>Start Date: {item.daily_menu.start_date}</h5>
                         <button className="btn">Add +</button>
+                        <hr/>
                     </div>
                 </li>
             );
