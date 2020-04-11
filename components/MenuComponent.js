@@ -20,16 +20,16 @@ class MenuComponent extends Component {
                 'user-key': '769eead0dcfce8d55a40154cac886fde'
             }
         };
-        axios.get('https://developers.zomato.com/api/v2.1/restaurant?res_id=19333744', options)
+        axios.get('https://developers.zomato.com/api/v2.1/dailymenu?res_id=16507624', options)
             .then(response => {
-                const daily_menus = response.data;
-                this.setState({
-                    daily_menus: [this.state.daily_menus, daily_menus],
-                    isLoading: false
-                });
+                let arr = [];
+                arr = Object.entries(response.data).filter(e => e !== 'daily_menus,');
+                console.log(arr[0][1])
+               // const daily_menus = arr[0][1];
+                this.setState({daily_menus: arr[0][1]});
             })
             // If we catch any errors connecting, let's update accordingly
-            .catch(error => this.setState({ error, isLoading: false }));
+           // .catch(error => this.setState({ error, isLoading: false }));
     }
 
 
@@ -37,28 +37,25 @@ class MenuComponent extends Component {
         this.getRestaurants()
     }
 
-
     render() {
-        const { isLoading, daily_menus} = this.state;
+       // console.log('data' + Object.entries(this.state))
+        const {daily_menus} = this.state;
+        const list = daily_menus.map((item, index) => {
+            return (
+                <li className="list-container" key={index}>
+                    <div className="text-container">
+                        <h4>Dish Name: {item.daily_menu.name}</h4>
+                        <h5>Start Date: {item.daily_menu.start_date}</h5>
+                        <button className="btn">Add +</button>
+                    </div>
+                </li>
+            );
+        });
+
         return (
-            <React.Fragment>
-                <h2>List of Menu</h2>
-                <div>
-                    {!isLoading ? (
-                        daily_menus.map(daily_menu => {
-                            return (
-                                <div key={daily_menu.id}>
-                                    <h2>{daily_menu.name}</h2>
-                                    <p>{daily_menu.cuisines}</p>
-                                    <hr />
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </div>
-            </React.Fragment>
+            <ul id="container" className="cf">
+                {list}
+            </ul>
         );
     }
 }
