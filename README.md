@@ -5,7 +5,7 @@ Frontend ReactApplication:
 * cd into repo and run: npm install, then run 
 - npm run web
 
-*
+* Choose 'Run in web browser' (to view app on browser)
 
 
 
