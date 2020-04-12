@@ -15,7 +15,7 @@ class MenuComponent extends Component {
 
     getMenuList() {
         let  array = [];
-        let v = [];
+        let arr = [];
         const options = {
             headers: {
                 'Content-Type': 'application/json;charset=UTF-8',
@@ -24,7 +24,6 @@ class MenuComponent extends Component {
         };
         axios.get('https://developers.zomato.com/api/v2.1/dailymenu?res_id=16507624', options)
             .then(response => {
-                let arr = [];
                 arr = Object.entries(response.data).filter(e => e !== 'daily_menus,');
                 const iterator = arr[0][1].values();
                 for (const value of iterator) {
