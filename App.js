@@ -7,7 +7,7 @@ import CheckoutComponent from './components/CheckoutComponent';
 
 function MenuScreen() {
   return (
-      <View style={{ flex: 1, justifyContent: 'top', alignItems: 'center'}}>
+      <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
           <p>Our Menu List</p>
           <MenuComponent/>
       </View>
@@ -16,7 +16,7 @@ function MenuScreen() {
 
 function CheckoutScreen() {
   return (
-      <View style={{ flex: 1, justifyContent: 'top', alignItems: 'center'}}>
+      <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
         <CheckoutComponent/>
       </View>
   );

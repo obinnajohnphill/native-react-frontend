@@ -13,7 +13,7 @@ class MenuComponent extends Component {
         };
     }
 
-    getRestaurants() {
+    getMenuList() {
         let  array = [];
         let v = [];
         const options = {
@@ -39,7 +39,7 @@ class MenuComponent extends Component {
     }
 
     componentDidMount() {
-        this.getRestaurants()
+        this.getMenuList()
     }
 
     render() {
